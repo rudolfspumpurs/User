@@ -72,6 +72,7 @@
                                 </div>
                             </div>
                         </div>
+                        @include('user::admin.partials.profile-create')
                     </div>
                 </div>
                 <div class="tab-pane" id="tab_2-2">

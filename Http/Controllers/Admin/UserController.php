@@ -118,6 +118,7 @@ class UserController extends BaseUserModuleController
     {
         $data = $this->mergeRequestWithPermissions($request);
 
+
         $this->user->updateAndSyncRoles($id, $data, $request->roles);
 
         if ($request->get('button') === 'index') {

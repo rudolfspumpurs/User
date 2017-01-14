@@ -19,6 +19,15 @@ class User extends EloquentUser implements UserInterface
         'permissions',
         'first_name',
         'last_name',
+        'phone',
+        'title',
+        'country',
+        'address',
+        'language',
+        'markup',
+        'vat',
+        'currency',
+        'currency_rate',
     ];
 
     /**

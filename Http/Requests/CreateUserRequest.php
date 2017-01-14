@@ -13,6 +13,11 @@ class CreateUserRequest extends FormRequest
             'last_name' => 'required',
             'email' => 'required|unique:users|email',
             'password' => 'required|min:3|confirmed',
+            'language' => 'required|min:2|max:2',
+            'markup' => 'required|regex:/^\d*(\.\d{1,2})?$/',
+            'vat' => 'required|regex:/^\d*(\.\d{1,2})?$/',
+            'currency' => 'required|min:3|max:3',
+            'currency_rate' => 'required|regex:/^\d*(\.\d{1,2})?$/',
         ];
     }
 
