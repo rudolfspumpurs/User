@@ -5,6 +5,7 @@ namespace Modules\User\Entities\Sentinel;
 use Cartalyst\Sentinel\Laravel\Facades\Activation;
 use Cartalyst\Sentinel\Users\EloquentUser;
 use Laracasts\Presenter\PresentableTrait;
+use Modules\User\DTOs\UserMarkupDTO;
 use Modules\User\Entities\UserInterface;
 use Modules\User\Entities\UserToken;
 use Modules\User\Presenters\UserPresenter;
@@ -136,5 +137,9 @@ class User extends EloquentUser implements UserInterface
         $permissions = $this->getPermissionsInstance();
 
         return $permissions->hasAccess($permission);
+    }
+
+    public function getUserMarkup() {
+        return new UserMarkupDTO($this->markup, $this->vat);
     }
 }
