@@ -3,6 +3,7 @@
 namespace Modules\User\Http\Controllers\Admin;
 
 use Illuminate\Http\Response;
+use LaravelLocalization;
 use Modules\User\Contracts\Authentication;
 use Modules\User\Events\UserHasBegunResetProcess;
 use Modules\User\Http\Requests\CreateUserRequest;
@@ -69,7 +70,12 @@ class UserController extends BaseUserModuleController
     {
         $roles = $this->role->all();
 
-        return view('user::admin.users.create', compact('roles'));
+        $availableLocales = array_combine(
+            array_keys(LaravelLocalization::getSupportedLocales()),
+            array_keys(LaravelLocalization::getSupportedLocales())
+        );
+
+        return view('user::admin.users.create', compact('roles', 'availableLocales'));
     }
 
     /**
@@ -104,7 +110,12 @@ class UserController extends BaseUserModuleController
 
         $currentUser = $this->auth->user();
 
-        return view('user::admin.users.edit', compact('user', 'roles', 'currentUser'));
+        $availableLocales = array_combine(
+            array_keys(LaravelLocalization::getSupportedLocales()),
+            array_keys(LaravelLocalization::getSupportedLocales())
+        );
+
+        return view('user::admin.users.edit', compact('user', 'roles', 'currentUser', 'availableLocales'));
     }
 
     /**

@@ -6,7 +6,7 @@
         {!! Form::normalInput('phone', trans('profile.form.phone'), $errors, $user) !!}
     </div>
     <div class="col-md-3">
-        {!! Form::normalInput('language', trans('profile.form.language'), $errors, $user) !!}
+        {!! Form::normalSelect('language', trans('profile.form.language'), $errors, $availableLocales, $user) !!}
     </div>
     <div class="col-md-3">
         {!! Form::normalInput('country', trans('profile.form.country'), $errors, $user) !!}
