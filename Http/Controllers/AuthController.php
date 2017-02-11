@@ -36,8 +36,9 @@ class AuthController extends BasePublicController
         $remember = (bool) $request->get('remember_me', false);
 
         $error = $this->auth->login($credentials, $remember);
+
         if (!$error) {
-            return redirect()->intended()
+            return redirect()->intended($this->auth->user()->getUserLocale())
                 ->withSuccess(trans('user::messages.successfully logged in'));
         }
 

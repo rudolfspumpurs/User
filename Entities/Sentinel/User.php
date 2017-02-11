@@ -142,4 +142,8 @@ class User extends EloquentUser implements UserInterface
     public function getUserMarkup() {
         return new UserMarkupDTO($this->markup, $this->vat);
     }
+
+    public function getUserLocale() {
+        return $this->language;
+    }
 }
